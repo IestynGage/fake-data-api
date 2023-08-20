@@ -29,7 +29,7 @@ app.post("*", (req, res) => {
   const path = req.path;
   if (path === "/list") {
     res.status(400).json({
-      message: `URL '${path}' added`
+      message: `URL '${path}' not added`
     });
   } 
   else {
