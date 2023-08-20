@@ -1,5 +1,7 @@
 const express = require('express');
+
 const app = express();
+app.use(express.json()); /* A middleware that parses the body of the request and makes it available in the req.body object. */
 
 const PORT = 8080;
 const HOST = '0.0.0.0';
