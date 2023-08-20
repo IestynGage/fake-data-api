@@ -1,6 +1,9 @@
 const express = require('express');
 const app = express();
 
+const PORT = 8080;
+const HOST = '0.0.0.0';
+
 const generateDataPaths = new Set();
 
 app.get('/list', (req, res) => {
@@ -37,6 +40,9 @@ app.post("*", (req, res) => {
   }
 })
 
-const server = app.listen(3000);
+const server = app.listen(PORT, HOST, () => {
+  console.log(`Running on http://${HOST}:${PORT}`);
+});
+
 
 module.exports = server;
