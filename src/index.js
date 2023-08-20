@@ -12,7 +12,7 @@ app.get('/list', (req, res) => {
 app.get('*', function (req, res) {
   if (generateDataPaths.has(req.path)) {
     res.json({
-      message: 'Found url ' + req.path
+      message: `Found url '${req.path}`
     });
   } 
   else {
@@ -31,10 +31,12 @@ app.post("*", (req, res) => {
   } 
   else {
     generateDataPaths.add(req.path);
-    res.json({
+    res.status(201).json({
       message: `URL '${path}' added`
     });
   }
 })
 
-app.listen(3000);
+const server = app.listen(3000);
+
+module.exports = server;
